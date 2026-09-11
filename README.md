@@ -30,3 +30,20 @@ If you are developing a production application, we recommend enabling type-aware
 ```
 
 See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+
+<!-- 
+…or create a new repository on the command line
+
+echo "# A05-DevStack" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/Habiba22Akter/A05-DevStack.git
+git push -u origin main
+
+…or push an existing repository from the command line
+
+git remote add origin https://github.com/Habiba22Akter/A05-DevStack.git
+git branch -M main
+git push -u origin main -->
