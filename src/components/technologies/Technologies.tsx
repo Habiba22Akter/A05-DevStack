@@ -53,7 +53,7 @@ const Technologies = ({
       id="technologies"
       className="mx-auto max-w-[1568px] px-6 pb-24"
     >
-  
+
       <div className="mb-10">
         <h1 className="text-3xl font-bold text-slate-950">
           Explore the{" "}
@@ -67,10 +67,10 @@ const Technologies = ({
         </p>
       </div>
 
-  
+
       <div className="grid grid-cols-1 items-start gap-6 lg:grid-cols-[1fr_300px]">
 
-  
+
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
           {technologies.map((technology) => {
             const isAdded = selectedTechnologies.some(
@@ -88,7 +88,7 @@ const Technologies = ({
           })}
         </div>
 
-  
+
         <div className="self-start">
           <YourStack
             selectedTechnologies={selectedTechnologies}
