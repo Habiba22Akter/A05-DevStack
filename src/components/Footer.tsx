@@ -1,11 +1,60 @@
-import Logo from '../assets/logo-text.png';
-const Footer = () => <footer id="contact" className="border-t border-[#edf0f4] bg-white pt-16">
-    <div className="page-container grid gap-10 pb-16 sm:grid-cols-2 lg:grid-cols-[2fr_1fr_1fr_1fr]">
-        <div><img src={Logo} alt="Dev Stack" className="h-8 w-auto" /><p className="mt-5 max-w-[400px] text-[12px] leading-5 text-[#7b8ba3]">Curated tools, technologies, and resources for developers building modern software.</p><div className="mt-7 flex gap-5 text-[11px] font-medium text-[#475569]"><a href="#">GitHub</a><a href="#">Twitter</a><a href="#">LinkedIn</a></div></div>
-        <div><h4 className="text-[11px] font-bold text-[#1e293b]">PRODUCT</h4><div className="mt-5 space-y-3 text-[11px] text-[#7b8ba3]"><p>Home</p><p>Technologies</p><p>Projects</p></div></div>
-        <div><h4 className="text-[11px] font-bold text-[#1e293b]">COMPANY</h4><div className="mt-5 space-y-3 text-[11px] text-[#7b8ba3]"><p>About</p><p>Contact</p><p>Careers</p></div></div>
-        <div><h4 className="text-[11px] font-bold text-[#1e293b]">LEGAL</h4><div className="mt-5 space-y-3 text-[11px] text-[#7b8ba3]"><p>Privacy Policy</p><p>Terms of Service</p></div></div>
-    </div>
-    <div className="page-container flex items-center justify-between border-t border-[#edf0f4] py-7 text-[10px] text-[#94a3b8]"><p>© 2026 Dev Stack. All rights reserved.</p><div className="flex gap-7"><span>Privacy</span><span>Terms</span></div></div>
-</footer>;
+const Footer = () => {
+  return (
+    <footer id="contact" className="border-t border-slate-100 bg-white">
+      <div className="mx-auto max-w-[1240px] px-5 py-16 lg:px-0">
+        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-[2fr_1fr_1fr_1fr]">
+          <div id="about">
+            <a href="#home" className="flex items-center gap-2">
+              <span className="brand-gradient-bg flex h-8 w-8 items-center justify-center rounded-lg text-xs font-bold text-white">DS</span>
+              <span className="text-xl font-bold text-slate-900">Dev <span className="brand-gradient">Stack</span></span>
+            </a>
+            <p className="mt-4 max-w-sm text-sm leading-6 text-slate-500">
+              Curated tools, technologies, and resources for developers building modern software.
+            </p>
+            <div className="mt-6 flex gap-5 text-sm font-medium text-slate-600">
+              <a href="https://github.com" target="_blank">GitHub</a>
+              <a href="https://twitter.com" target="_blank">Twitter</a>
+              <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+            </div>
+          </div>
+
+          <div id="projects">
+            <h4 className="text-xs font-bold tracking-wide text-slate-900">PRODUCT</h4>
+            <ul className="mt-5 space-y-3 text-sm text-slate-500">
+              <li><a href="#home">Home</a></li>
+              <li><a href="#technologies">Technologies</a></li>
+              <li><a href="#projects">Projects</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="text-xs font-bold tracking-wide text-slate-900">COMPANY</h4>
+            <ul className="mt-5 space-y-3 text-sm text-slate-500">
+              <li><a href="#about">About</a></li>
+              <li><a href="#contact">Contact</a></li>
+              <li><a href="#">Careers</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="text-xs font-bold tracking-wide text-slate-900">LEGAL</h4>
+            <ul className="mt-5 space-y-3 text-sm text-slate-500">
+              <li><a href="#">Privacy Policy</a></li>
+              <li><a href="#">Terms of Service</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div className="mt-14 flex flex-col gap-4 border-t border-slate-100 pt-7 text-xs text-slate-400 sm:flex-row sm:items-center sm:justify-between">
+          <p>© 2026 Dev Stack. All rights reserved.</p>
+          <div className="flex gap-6">
+            <a href="#">Privacy</a>
+            <a href="#">Terms</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+};
+
 export default Footer;

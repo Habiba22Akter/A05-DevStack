@@ -1,17 +1,49 @@
-import Banner from "./components/Banner"
-import Footer from "./components/Footer"
-import Nav from "./components/Nav"
+import { Suspense } from "react";
+
+import Nav from "./components/Nav";
+import Banner from "./components/Banner";
+import Technologies from "./components/technologies/Technologies";
+import Footer from "./components/Footer";
+
+import type { Technology } from "./types/technology";
+
+
+const technologiesFetch = async (): Promise<Technology[]> => {
+
+  const res = await fetch("/technologies.json");
+
+  const data = await res.json();
+
+  return data;
+};
+
+
+const technologiesPromise = technologiesFetch();
+
 
 function App() {
- 
 
   return (
     <>
-      <Nav></Nav>
-      <Banner></Banner>
-      <Footer></Footer>
+      <Nav />
+      <Banner />
+      <Suspense
+        fallback={
+          <div className="py-20 text-center">
+            <h2 className="text-xl font-semibold">
+              Loading Technologies...
+            </h2>
+          </div>
+        }
+      >
+        <Technologies
+          technologiesPromise={technologiesPromise}
+        />
+      </Suspense>
+
+      <Footer />
     </>
-  )
+  );
 }
 
-export default App
+export default App;

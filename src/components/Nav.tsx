@@ -1,84 +1,57 @@
-import { useState } from 'react';
-import Logo from '../assets/logo-text.png';
-
-const links = [
-  { label: 'Home', href: '#home' },
-  { label: 'Technologies', href: '#technologies' },
-  { label: 'Projects', href: '#projects' },
-  { label: 'About', href: '#about' },
-  { label: 'Contact', href: '#contact' },
-];
+import Hamburger from "../assets/hamburger.png";
+import { useState } from "react";
 
 const Nav = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-slate-200/80 bg-white/90 backdrop-blur-xl">
-      <nav className="page-container flex h-[72px] items-center justify-between gap-3">
+    <nav className="sticky top-0 z-50 border-b border-slate-100 bg-white/95 backdrop-blur">
+      <div className="mx-auto flex h-[72px] max-w-[1240px] items-center justify-between px-5 lg:px-0">
         <button
-          type="button"
-          aria-label="Toggle navigation menu"
-          aria-expanded={menuOpen}
-          onClick={() => setMenuOpen((open) => !open)}
-          className="grid h-10 w-10 place-items-center rounded-xl border border-slate-200 text-slate-800 transition hover:bg-slate-50 md:hidden"
+          onClick={() => setMenuOpen(!menuOpen)}
+          className="text-2xl text-slate-800 md:hidden"
+          aria-label="Toggle menu"
         >
-          <span className="flex w-5 flex-col gap-1.5">
-            <span className="h-0.5 w-full rounded bg-current" />
-            <span className="h-0.5 w-full rounded bg-current" />
-            <span className="h-0.5 w-full rounded bg-current" />
-          </span>
+          <img src={Hamburger} alt="Menu" className="h-5 w-6 object-contain" />
         </button>
 
-        <a href="#home" className="shrink-0 md:order-none" aria-label="Dev Stack home">
-          <img src={Logo} alt="Dev Stack" className="h-9 w-auto" />
+        <a href="#home" className="flex items-center gap-2">
+          <span className="brand-gradient-bg flex h-8 w-8 items-center justify-center rounded-lg text-xs font-bold text-white">
+            DS
+          </span>
+          <span className="hidden text-xl font-bold text-slate-900 sm:block">
+            Dev <span className="brand-gradient">Stack</span>
+          </span>
         </a>
 
-        <ul className="hidden items-center gap-8 text-sm font-medium text-slate-600 md:flex">
-          {links.map((link, index) => (
-            <li key={link.label}>
-              <a
-                href={link.href}
-                className={`transition hover:text-violet-600 ${index === 0 ? 'text-pink-600' : ''}`}
-              >
-                {link.label}
-              </a>
-            </li>
-          ))}
+        <ul className="hidden items-center gap-9 text-sm text-slate-600 md:flex">
+          <li><a className="text-pink-600" href="#home">Home</a></li>
+          <li><a className="hover:text-pink-600" href="#technologies">Technologies</a></li>
+          <li><a className="hover:text-pink-600" href="#projects">Projects</a></li>
+          <li><a className="hover:text-pink-600" href="#about">About</a></li>
+          <li><a className="hover:text-pink-600" href="#contact">Contact</a></li>
         </ul>
 
-        <div className="flex items-center gap-2 sm:gap-3">
-          <button className="hidden px-2 py-2 text-sm font-semibold text-slate-700 transition hover:text-violet-600 sm:block">
-            Sign In
-          </button>
-          <button className="brand-gradient rounded-full px-4 py-2.5 text-xs font-bold text-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-lg sm:px-5 sm:text-sm">
+        <div className="flex items-center gap-3 text-sm">
+          <button className="hidden text-slate-700 sm:block">Sign In</button>
+          <button className="brand-gradient-bg rounded-full px-5 py-2.5 font-semibold text-white">
             Sign Up
           </button>
         </div>
-      </nav>
+      </div>
 
       {menuOpen && (
-        <div className="border-t border-slate-200 bg-white px-4 py-3 shadow-sm md:hidden">
-          <ul className="mx-auto flex max-w-7xl flex-col gap-1">
-            {links.map((link) => (
-              <li key={link.label}>
-                <a
-                  href={link.href}
-                  onClick={() => setMenuOpen(false)}
-                  className="block rounded-xl px-4 py-3 text-sm font-medium text-slate-700 hover:bg-slate-50 hover:text-violet-600"
-                >
-                  {link.label}
-                </a>
-              </li>
-            ))}
-            <li className="sm:hidden">
-              <button className="block w-full rounded-xl px-4 py-3 text-left text-sm font-semibold text-slate-700 hover:bg-slate-50">
-                Sign In
-              </button>
-            </li>
+        <div className="border-t border-slate-100 bg-white px-5 py-4 md:hidden">
+          <ul className="flex flex-col gap-3 text-sm text-slate-700">
+            <li><a onClick={() => setMenuOpen(false)} href="#home">Home</a></li>
+            <li><a onClick={() => setMenuOpen(false)} href="#technologies">Technologies</a></li>
+            <li><a onClick={() => setMenuOpen(false)} href="#projects">Projects</a></li>
+            <li><a onClick={() => setMenuOpen(false)} href="#about">About</a></li>
+            <li><a onClick={() => setMenuOpen(false)} href="#contact">Contact</a></li>
           </ul>
         </div>
       )}
-    </header>
+    </nav>
   );
 };
 
