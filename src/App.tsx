@@ -5,7 +5,8 @@ import Banner from "./components/Banner";
 import Technologies from "./components/technologies/Technologies";
 import Footer from "./components/Footer";
 import type { Technology } from "./types/technology";
-
+// import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from "react-toastify";
 
 
 const technologiesFetch = async (): Promise<Technology[]> => {
@@ -42,6 +43,10 @@ function App() {
       </Suspense>
 
       <Footer />
+      <ToastContainer
+        position="top-right"
+        autoClose={2000}
+      />
     </>
   );
 }

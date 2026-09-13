@@ -2,7 +2,7 @@ import { use, useState } from "react";
 
 import TechnologyCard from "./TechnologyCard";
 import YourStack from "./YourStack";
-
+import { toast } from "react-toastify";
 import type { Technology } from "../../types/technology";
 
 type TechnologiesProps = {
@@ -24,7 +24,7 @@ const Technologies = ({
     );
 
     if (isExist) {
-      alert("Technology already added!");
+      toast.warning(`${technology.name} is already in your stack!`);
       return;
     }
 
@@ -32,6 +32,7 @@ const Technologies = ({
       ...selectedTechnologies,
       technology,
     ]);
+    toast.success(`${technology.name} added to stack!`);
   };
 
 
@@ -42,10 +43,21 @@ const Technologies = ({
       );
 
     setSelectedTechnologies(remainingTechnologies);
+
+    const removedTechnology = selectedTechnologies.find(
+      (technology) => technology.id === id
+    );
+
+    if (removedTechnology) {
+      toast.error(
+        `${removedTechnology.name} removed from stack!`
+      );
+    }
   };
 
   const handleRemoveAll = () => {
     setSelectedTechnologies([]);
+    toast.info("All technologies removed!");
   };
 
   return (
