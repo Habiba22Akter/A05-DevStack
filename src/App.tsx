@@ -4,8 +4,8 @@ import Nav from "./components/Nav";
 import Banner from "./components/Banner";
 import Technologies from "./components/technologies/Technologies";
 import Footer from "./components/Footer";
-
 import type { Technology } from "./types/technology";
+
 
 
 const technologiesFetch = async (): Promise<Technology[]> => {
