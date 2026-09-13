@@ -1,49 +1,61 @@
-# React + TypeScript + Vite
+# 🚀 Dev Stack Builder
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Dev Stack Builder is a responsive React application where developers can explore popular technologies and create their own development stack.
 
-Currently, two official plugins are available:
+Users can browse frontend, backend, database, language, styling and DevOps technologies, add them to a personal stack, remove individual items and clear the whole stack.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🌐 Live Demo
 
-## React Compiler
+Live Website: https://ubiquitous-wisp-d3c212.netlify.app/#contact
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🛠️ Technologies Used
 
-## Expanding the Oxlint configuration
+- React.js
+- TypeScript
+- Tailwind CSS
+- Vite
+- React Toastify
+- JSON
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
+## ✨ Features
 
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+1. Explore 12 popular development technologies loaded from a local JSON file.
+2. Add, remove and clear technologies from the Your Stack panel with Toastify notifications.
+3. Fully responsive UI with sticky navbar, mobile menu, loading state and shared gradient theme.
+
+# 📚 React Questions & Answers
+
+## 1. What is JSX, and why is it used in React?
+
+JSX lets us write HTML-like code inside JavaScript or TypeScript. It makes React UI code easier to read and write.
+
+## 2. What is the difference between props and state?
+
+Props pass data from a parent component to a child component. State stores changing data inside a component.
+
+## 3. What does the `useState` hook do, and where did you use it in this project?
+
+`useState` stores and updates component data. I used it for technologies, selected technologies, loading state and the mobile menu.
+
+## 4. What does the `useEffect` hook do, and why did you need it to load the JSON data?
+
+`useEffect` runs side-effect code after rendering. I used it to fetch `/data.json` when the app first loads.
+
+## 5. Why does every item in a `.map()` list need a unique `key` prop?
+
+A unique key helps React identify which list item changed, was added or was removed.
+
+## 6. What is conditional rendering? Show one place you used it.
+
+Conditional rendering means showing different UI based on a condition. In Your Stack, an empty message appears when no technology is selected; otherwise selected items are shown.
+
+## 7. How do you pass data from a parent component to a child component, and how does a child send something back to the parent?
+
+A parent passes data through props. A child can call a callback function passed through props to send an action or value back to the parent.
+
+## 🚀 Run Locally
+
+```bash
+npm install
+npm run dev
 ```
-
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
-
-<!-- 
-…or create a new repository on the command line
-
-echo "# A05-DevStack" >> README.md
-git init
-git add README.md
-git commit -m "first commit"
-git branch -M main
-git remote add origin https://github.com/Habiba22Akter/A05-DevStack.git
-git push -u origin main
-
-…or push an existing repository from the command line
-
-git remote add origin https://github.com/Habiba22Akter/A05-DevStack.git
-git branch -M main
-git push -u origin main -->
