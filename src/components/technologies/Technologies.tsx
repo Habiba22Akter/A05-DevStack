@@ -1,6 +1,7 @@
 import { use } from "react";
 import TechnologyCard from "./TechnologyCard";
 import type { Technology } from "../../types/technology";
+import YourStack from "./YourStack";
 
 type TechnologiesProps = {
   technologiesPromise: Promise<Technology[]>;
@@ -33,16 +34,29 @@ const Technologies = ({
 
       </div>
 
-      <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+       <div className="grid grid-cols-1 gap-6 lg:grid-cols-[1fr_280px]">
 
-        {technologies.map((technology) => (
-          <TechnologyCard
-            key={technology.id}
-            technology={technology}
-          />
-        ))}
+       
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
+          {technologies.map((technology) => (
+            <TechnologyCard
+              key={technology.id}
+              technology={technology}
+            />
+          ))}
+        </div>
+
+       
+        <div>
+          <YourStack />
+        </div>
 
       </div>
+
+
+        
+
+      
 
     </section>
   );
